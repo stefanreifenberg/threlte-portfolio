@@ -9,7 +9,6 @@
   </Canvas>
 </div>
 
-
 <style>
   .canvas-wrapper {
     position: fixed;
@@ -22,6 +21,4 @@
   :global(.canvas-wrapper canvas) {
     position: absolute;
   }
-
-
 </style>

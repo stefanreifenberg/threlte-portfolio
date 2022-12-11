@@ -1,13 +1,7 @@
 <script>
-  import { T, useFrame, OrbitControls } from '@threlte/core'
-  import { DirectionalLight, Group, RectAreaLight } from 'three';
-  import { degToRad } from 'three/src/math/MathUtils'
-  import { DEG2RAD } from 'three/src/math/MathUtils'
+  import { T, OrbitControls } from '@threlte/core'
 
   import { GLTF, Float, ContactShadows, Environment, HTML, Text } from '@threlte/extras';
-  let camera
-
-  useFrame((e) => {})
 </script>
 
 <Float rotationIntensity={0.4}>
@@ -36,7 +30,7 @@
   </GLTF>
   <Text
     font="./bangers-v20-latin-regular.woff"
-    fontSize={0.9}
+    fontSize={0.7}
     position={{x:2,  y: 0.75, z: 0.75 }}
     rotation={{x: 0, y: -1.25, z: 0}}
     text="STEFAN REIFENBERG"
@@ -49,7 +43,6 @@
  
 <Environment path="/hdr/" files="potsdamer_platz_1k.hdr" isBackground={false}/>
 
-
  <T.PerspectiveCamera makeDefault near={0.1} far={1000} zoom={1} position={[-4, 4, 4]}>
      <OrbitControls 
           enableDamping
@@ -57,16 +50,11 @@
           minPolarAngle={0}
           maxAzimuthAngle={0.75}
           minAzimuthAngle={-0.75}
-         enableZoom={true}
+          enableZoom={false}
           target={{ y: 0.5 }}
           
            />
  </T.PerspectiveCamera>
-<!-- 
- <T.GridHelper args={[100, 100]} /> -->
- 
- <T.DirectionalLight position={[1,2, 3]} intensity={1.5} />
- <T.AmbientLight intensity={0.5} />
 
 <style>
   .htmlScreen iframe{
