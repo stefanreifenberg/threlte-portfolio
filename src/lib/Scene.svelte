@@ -48,13 +48,11 @@
     <HTML transform distanceFactor={1.17} position={{ x: 0, y: 1.56, z: -1.4 }} rotation={{x: -0.256}}
     >
       <div class="htmlScreen" on:pointerenter={() => {
-        console.log('hover!')
         $cameraX = 0;
         $cameraY = 0;
         $cameraZ = 2.8;
       }}
       on:pointerleave={() => {
-        console.log('User clicked!')
         $cameraZ = 4;
         $cameraY = 4;
         $cameraX = -4;
