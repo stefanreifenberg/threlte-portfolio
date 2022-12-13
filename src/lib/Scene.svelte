@@ -5,6 +5,8 @@
   import { tweened } from 'svelte/motion';
   import { cubicInOut } from 'svelte/easing';
 
+  let on = false
+
 
   let cameraX = tweened(-4, {
 		duration: 2000,
@@ -23,22 +25,28 @@
 </script>
 
 <Float rotationIntensity={0.4}>
-  <T.RectAreaLight
-    color="#ffffff"
-    intensity={65}
-    width={2.5}
-    height={1.65}
-    position={[0, 0.55, -1.15]}
-    rotation={[0.1, Math.PI, 0]}
-  />
+  {#if on}
+    <T.RectAreaLight
+      color="#ffffff"
+      intensity={65}
+      width={2.5}
+      height={1.65}
+      position={[0, 0.55, -1.15]}
+      rotation={[0.1, Math.PI, 0]}
+    />
+  {/if}
   <GLTF
     url="https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
     position={{ y: -1.2 }}
     useDraco
+    interactive
+    on:click={() => {
+      on = !on
+    }}
   >
+  {#if on}
     <HTML transform distanceFactor={1.17} position={{ x: 0, y: 1.56, z: -1.4 }} rotation={{x: -0.256}}
     >
-      <!-- add on:hover -->
       <div class="htmlScreen" on:pointerenter={() => {
         console.log('hover!')
         $cameraX = 0;
@@ -54,7 +62,9 @@
         <iframe src="https://stefanreifenberg.com/portfolio/" />
       </div>
     </HTML>
+    {/if}
   </GLTF>
+
   <Text
     font="./bangers-v20-latin-regular.woff"
     fontSize={0.7}
