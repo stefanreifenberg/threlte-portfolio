@@ -24,7 +24,7 @@
   >
     <HTML transform distanceFactor={1.17} position={{ x: 0, y: 1.56, z: -1.4 }} rotation={{x: -0.256}}> 
       <div class="htmlScreen">
-        <iframe src="https://stefanreifenberg.com/portfolio/" />
+        <iframe src="https://www.stefanreifenberg.com" />
       </div>
     </HTML>
   </GLTF>
